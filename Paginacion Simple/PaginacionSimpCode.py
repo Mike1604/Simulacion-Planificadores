@@ -644,11 +644,12 @@ class Ui_MainWindow(object):
             act+=1;
             i+=1
         self.actTablePage();
+
         print("Disp: "+str(self.Dispon))
+        for p in self.procesos:
+            print("Id:"+str(p.id)+" Sz:"+str(p.sz));
         while (numProc != len(self.done)):
             self.label_11.setText(str(numProc-act))
-            print("YOOOOO "+str(numProc)+" "+str(len(self.done)))
-            print("Listos: "+str(len(listos)))
             if (len(listos)>0):
                 flag=True;
                 j=listos[0]
@@ -719,12 +720,11 @@ class Ui_MainWindow(object):
                         p=self.generarProcesos(i);
                         self.procesos.append(p);
                         numProc = len(self.procesos)
-                        if(act<numProc) and ((self.Dispon*5) >= p.sz) and ((numProc-act)-1 ==0):
+                        if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
                             self.procesos[act].status="Listo";
                             self.procesos[act].tLlegada=self.tg;
                             listos.append(self.procesos[act])
                             self.addProcMar(self.procesos[act]);
-                            print("Disp: "+str(self.Dispon))
                             act+=1;
                         self.label_11.setText(str(numProc-act))
                         self.FNuevo=False;
@@ -768,6 +768,7 @@ class Ui_MainWindow(object):
                             self.actStatusPage(Del.status, Del);
                             listos.append(Del)
                             bloq.remove(Del)
+                            
                         
                     else:
                         self.tableWidget_3.setRowCount(0)
@@ -788,11 +789,15 @@ class Ui_MainWindow(object):
                     
                     self.delProcMar(j);
                     
-                    if(act<numProc) and ((self.Dispon*5) >= p.sz):
+                    if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz):
+                        print("#############################")
+                        print("Disp: "+str(self.Dispon*5) + " " + str(self.procesos[act].sz))
                         self.procesos[act].status="Listo";
                         self.procesos[act].tLlegada=self.tg;
                         listos.append(self.procesos[act])
                         self.addProcMar(self.procesos[act]);
+                        for p in self.procesos:
+                            print("Id:"+str(p.id)+" Sz:"+str(p.sz));
                         act+=1;
                  
                     
@@ -816,12 +821,11 @@ class Ui_MainWindow(object):
                     p=self.generarProcesos(i);
                     self.procesos.append(p);
                     numProc = len(self.procesos)
-                    if(act<numProc) and ((self.Dispon*5) >= p.sz) and ((numProc-act)-1 ==0):
+                    if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
                         self.procesos[act].status="Listo";
                         self.procesos[act].tLlegada=self.tg;
                         listos.append(self.procesos[act])
                         self.addProcMar(self.procesos[act]);
-                        print("Disp: "+str(self.Dispon))
                         act+=1;
                     self.label_11.setText(str(numProc-act))
                     self.FNuevo=False;
@@ -985,6 +989,9 @@ class Ui_MainWindow(object):
         if (event.key() == Qt.Key_Escape) and (self.active):
             self.close()
         elif (event.key() == Qt.Key_P) and (self.active):
+            self.FPausa=True;
+            print("Programa Pausado: "+str(self.FPausa))
+        elif (event.key() == Qt.Key_A) and (self.active):
             self.FPausa=True;
             print("Programa Pausado: "+str(self.FPausa))
         elif (event.key() == Qt.Key_C) and (self.active):
