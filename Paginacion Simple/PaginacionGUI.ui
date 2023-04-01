@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1377</width>
-    <height>861</height>
+    <height>844</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
       <x>0</x>
       <y>0</y>
       <width>1371</width>
-      <height>851</height>
+      <height>831</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -39,7 +39,7 @@
         <x>10</x>
         <y>10</y>
         <width>1361</width>
-        <height>841</height>
+        <height>821</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -250,10 +250,10 @@ border-radius: 5;</string>
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>450</x>
         <y>210</y>
         <width>241</width>
-        <height>321</height>
+        <height>401</height>
        </rect>
       </property>
       <property name="font">
@@ -319,7 +319,7 @@ QTableWidget::Item {
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>550</x>
         <y>140</y>
         <width>51</width>
         <height>51</height>
@@ -375,7 +375,7 @@ border-radius: 5;</string>
      <widget class="QTableWidget" name="tableWidget_2">
       <property name="geometry">
        <rect>
-        <x>700</x>
+        <x>710</x>
         <y>180</y>
         <width>261</width>
         <height>281</height>
@@ -472,7 +472,7 @@ QTableWidget::Item {
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>740</x>
+        <x>760</x>
         <y>120</y>
         <width>181</width>
         <height>51</height>
@@ -506,7 +506,7 @@ color: #E7F6F2;</string>
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>750</x>
+        <x>770</x>
         <y>480</y>
         <width>161</width>
         <height>61</height>
@@ -616,7 +616,7 @@ QTableWidget::Item {
      <widget class="QTableWidget" name="tableWidget_3">
       <property name="geometry">
        <rect>
-        <x>700</x>
+        <x>710</x>
         <y>610</y>
         <width>261</width>
         <height>221</height>
@@ -689,7 +689,7 @@ QTableWidget::Item {
       <property name="geometry">
        <rect>
         <x>750</x>
-        <y>550</y>
+        <y>560</y>
         <width>181</width>
         <height>31</height>
        </rect>
@@ -794,10 +794,10 @@ color: #E7F6F2;</string>
      <widget class="QTableWidget" name="tableWidget_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>150</y>
-        <width>391</width>
-        <height>691</height>
+        <width>421</width>
+        <height>661</height>
        </rect>
       </property>
       <property name="font">
@@ -832,20 +832,23 @@ QTableWidget::Item {
       <property name="autoScrollMargin">
        <number>16</number>
       </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
       <property name="rowCount">
        <number>0</number>
       </property>
       <attribute name="horizontalHeaderCascadingSectionResizes">
-       <bool>true</bool>
+       <bool>false</bool>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>95</number>
+       <number>90</number>
       </attribute>
       <attribute name="horizontalHeaderHighlightSections">
        <bool>true</bool>
       </attribute>
       <attribute name="horizontalHeaderMinimumSectionSize">
-       <number>19</number>
+       <number>39</number>
       </attribute>
       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
        <bool>true</bool>
@@ -880,6 +883,32 @@ QTableWidget::Item {
        </property>
       </column>
      </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>650</y>
+        <width>241</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift SemiBold SemiConden</family>
+        <pointsize>12</pointsize>
+        <weight>7</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 63 12pt &quot;Bahnschrift SemiBold SemiConden&quot;;
+color: #E7F6F2;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_17">
@@ -913,8 +942,8 @@ color: #E7F6F2;</string>
        <rect>
         <x>20</x>
         <y>90</y>
-        <width>1061</width>
-        <height>651</height>
+        <width>1341</width>
+        <height>751</height>
        </rect>
       </property>
       <property name="font">
@@ -949,7 +978,7 @@ QTableWidget::Item {
        <bool>false</bool>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>100</number>
+       <number>120</number>
       </attribute>
       <attribute name="horizontalHeaderHighlightSections">
        <bool>true</bool>
@@ -1043,8 +1072,8 @@ QTableWidget::Item {
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
-        <x>810</x>
-        <y>20</y>
+        <x>1140</x>
+        <y>10</y>
         <width>191</width>
         <height>61</height>
        </rect>
