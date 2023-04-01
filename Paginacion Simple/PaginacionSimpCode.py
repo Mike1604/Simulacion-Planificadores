@@ -645,11 +645,12 @@ class Ui_MainWindow(object):
             i+=1
         self.actTablePage();
 
-        print("Disp: "+str(self.Dispon))
-        for p in self.procesos:
-            print("Id:"+str(p.id)+" Sz:"+str(p.sz));
         while (numProc != len(self.done)):
             self.label_11.setText(str(numProc-act))
+            if act<numProc:
+                self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+            else:
+                self.label_22.setText("Sin procesos en cola")
             if (len(listos)>0):
                 flag=True;
                 j=listos[0]
@@ -728,6 +729,11 @@ class Ui_MainWindow(object):
                             act+=1;
                         self.label_11.setText(str(numProc-act))
                         self.FNuevo=False;
+                        if act<numProc:
+                            self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                        else:
+                            self.label_22.setText("Sin procesos en cola")
+                        
                     if self.FTabla:
                         self.actTimes();
                         self.FPausa=True;
@@ -799,7 +805,7 @@ class Ui_MainWindow(object):
                         for p in self.procesos:
                             print("Id:"+str(p.id)+" Sz:"+str(p.sz));
                         act+=1;
-                 
+                   
                     
                 tablerow2 = 0
                 for rows in self.done:
@@ -827,8 +833,13 @@ class Ui_MainWindow(object):
                         listos.append(self.procesos[act])
                         self.addProcMar(self.procesos[act]);
                         act+=1;
+                 
                     self.label_11.setText(str(numProc-act))
                     self.FNuevo=False;
+                    if act<numProc:
+                        self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                    else:
+                        self.label_22.setText("Sin procesos en cola")
                 if self.FTabla:
                     self.actTimes();
                     self.FPausa=True;
