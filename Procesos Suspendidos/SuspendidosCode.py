@@ -2,7 +2,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QTableWidgetItem
 from PyQt5 import QtTest
 from PyQt5.QtCore import Qt
+import json
 import random    
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -156,12 +158,12 @@ class Ui_MainWindow(object):
 "color: #E7F6F2;")
         self.label_12.setObjectName("label_12")
         self.label_13 = QtWidgets.QLabel(self.Lotes)
-        self.label_13.setGeometry(QtCore.QRect(470, 750, 151, 51))
+        self.label_13.setGeometry(QtCore.QRect(470, 770, 151, 51))
         self.label_13.setStyleSheet("font: 63 16pt \"Bahnschrift SemiBold SemiConden\";\n"
 "color: #E7F6F2;")
         self.label_13.setObjectName("label_13")
         self.label_14 = QtWidgets.QLabel(self.Lotes)
-        self.label_14.setGeometry(QtCore.QRect(640, 760, 51, 41))
+        self.label_14.setGeometry(QtCore.QRect(640, 780, 51, 41))
         self.label_14.setStyleSheet("font: 63 25pt \"Bahnschrift SemiBold SemiConden\";\n"
 "background-color: #A5C9CA;\n"
 "color: #2C3333;;\n"
@@ -225,7 +227,7 @@ class Ui_MainWindow(object):
 "color: #E7F6F2;")
         self.label_15.setObjectName("label_15")
         self.label_16 = QtWidgets.QLabel(self.Lotes)
-        self.label_16.setGeometry(QtCore.QRect(1060, 50, 181, 51))
+        self.label_16.setGeometry(QtCore.QRect(1070, 80, 181, 51))
         self.label_16.setStyleSheet("font: 63 16pt \"Bahnschrift SemiBold SemiConden\";\n"
 "color: #E7F6F2;")
         self.label_16.setObjectName("label_16")
@@ -249,7 +251,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.tableWidget_4 = QtWidgets.QTableWidget(self.Lotes)
-        self.tableWidget_4.setGeometry(QtCore.QRect(990, 110, 371, 621))
+        self.tableWidget_4.setGeometry(QtCore.QRect(990, 130, 371, 621))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift SemiBold SemiConden")
         font.setPointSize(13)
@@ -338,7 +340,7 @@ class Ui_MainWindow(object):
 "color: #E7F6F2;")
         self.label_18.setObjectName("label_18")
         self.pushButton_4 = QtWidgets.QPushButton(self.Lotes)
-        self.pushButton_4.setGeometry(QtCore.QRect(1100, 760, 161, 61))
+        self.pushButton_4.setGeometry(QtCore.QRect(1100, 770, 161, 61))
         self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_4.setStyleSheet("QPushButton{\n"
 "    font: 63 16pt \"Bahnschrift SemiBold SemiConden\";\n"
@@ -423,7 +425,7 @@ class Ui_MainWindow(object):
         self.tableWidget_5.verticalHeader().setDefaultSectionSize(30)
         self.tableWidget_5.verticalHeader().setMinimumSectionSize(23)
         self.label_22 = QtWidgets.QLabel(self.Lotes)
-        self.label_22.setGeometry(QtCore.QRect(450, 650, 241, 51))
+        self.label_22.setGeometry(QtCore.QRect(450, 620, 241, 51))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift SemiBold SemiConden")
         font.setPointSize(12)
@@ -435,6 +437,32 @@ class Ui_MainWindow(object):
 "color: #E7F6F2;")
         self.label_22.setText("")
         self.label_22.setObjectName("label_22")
+        self.label_23 = QtWidgets.QLabel(self.Lotes)
+        self.label_23.setGeometry(QtCore.QRect(450, 690, 241, 51))
+        font = QtGui.QFont()
+        font.setFamily("Bahnschrift SemiBold SemiConden")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.label_23.setFont(font)
+        self.label_23.setStyleSheet("font: 63 12pt \"Bahnschrift SemiBold SemiConden\";\n"
+"color: #E7F6F2;")
+        self.label_23.setText("")
+        self.label_23.setObjectName("label_23")
+        self.label_24 = QtWidgets.QLabel(self.Lotes)
+        self.label_24.setGeometry(QtCore.QRect(1220, 30, 51, 41))
+        self.label_24.setStyleSheet("font: 63 25pt \"Bahnschrift SemiBold SemiConden\";\n"
+"background-color: #A5C9CA;\n"
+"color: #2C3333;;\n"
+"border-radius: 5;")
+        self.label_24.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_24.setObjectName("label_24")
+        self.label_25 = QtWidgets.QLabel(self.Lotes)
+        self.label_25.setGeometry(QtCore.QRect(990, 20, 191, 51))
+        self.label_25.setStyleSheet("font: 63 16pt \"Bahnschrift SemiBold SemiConden\";\n"
+"color: #E7F6F2;")
+        self.label_25.setObjectName("label_25")
         self.stackedWidget.addWidget(self.Lotes)
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
@@ -541,6 +569,10 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         
         
+        
+        
+        
+        
                 
         
         
@@ -551,6 +583,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.clicked.connect(lambda: self.numProcesos())
         self.tg=0;
         self.QuantumVal=0;
+        self.lastid=1;
         self.FPausa=False;
         self.FInterrupcion=False;
         self.FError=False;
@@ -558,6 +591,8 @@ class Ui_MainWindow(object):
         self.procesos = [];
         self.active=False;
         self.FTabla=False;
+        self.FSuspend=False;
+        self.FReturn=False;
         self.pushButton_3.clicked.connect(lambda: self.comenzar());
         MainWindow.keyPressEvent = self.keyPressEvent
         self.tableWidget.keyPressEvent = self.keyPressEvent
@@ -578,15 +613,16 @@ class Ui_MainWindow(object):
             #Validaciones
             for i in range(self.numProc):
                 
-                p=self.generarProcesos(i+1);
+                p=self.generarProcesos();
                 self.procesos.append(p);
 
                     
             self.stackedWidget.setCurrentWidget(self.Lotes)
 
         
-    def generarProcesos(self, i):
-        Id = i;
+    def generarProcesos(self):
+        Id = self.lastid;
+        self.lastid+=1;
         op1 = random.randint(1,1000);
         op2 = random.randint(1,1000);
         oper = random.randint(1,5);
@@ -618,11 +654,11 @@ class Ui_MainWindow(object):
             return;
         self.done = []
         self.QuantumContador = self.QuantumVal
-        bloq = []
+        self.bloq = []
         numProc = len(self.procesos)
         act = 0
         listos = []
-        
+        self.susp=0;
         self.active=True
         self.Paginacion = [];
         self.Dispon=38;
@@ -645,7 +681,7 @@ class Ui_MainWindow(object):
             i+=1
         self.actTablePage();
 
-        while (numProc != len(self.done)):
+        while (len(self.procesos) != len(self.done) or (self.susp != 0)):
             self.label_11.setText(str(numProc-act))
             if act<numProc:
                 self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
@@ -659,10 +695,13 @@ class Ui_MainWindow(object):
                     j.atendido = True;
                 listos.pop(0)
                 
-                self.procesos[(j.id - 1)].status="Ejecucion";
+                for p in self.procesos:
+                    if p.id == j.id:
+                        p.status="Ejecucion";
+                        self.actStatusPage(p.status, j)
                 self.actualizarListos(listos)
                 
-                self.actStatusPage(self.procesos[(j.id - 1)].status, j)
+                
 
                 self.tableWidget_2.setRowCount(7)
                 self.tableWidget_2.setColumnCount(1)
@@ -677,7 +716,9 @@ class Ui_MainWindow(object):
                 for k in range(tp):
                     if(self.QuantumContador < 1):
                         j.status="Listo"
-                        self.procesos[(j.id - 1)].status="Listo";
+                        for p in self.procesos:
+                            if p.id == j.id:
+                                p.status="Ejecucion";
                         listos.append(j);
                         self.tableWidget_2.setItem(6,0,QTableWidgetItem(str(self.QuantumContador)))
                         self.label_20.setText(str(self.QuantumContador));
@@ -701,11 +742,13 @@ class Ui_MainWindow(object):
                     if self.FInterrupcion:
                         j.Tb = 8
                         j.status="Bloqueado"
-                        self.procesos[(j.id - 1)] = j;
-                        bloq.append(j)
+                        for p in self.procesos:
+                            if p.id == j.id:
+                                p=j;
+                        self.bloq.append(j)
                         
                         tablerow = 0
-                        for row in bloq:
+                        for row in self.bloq:
                             self.tableWidget_3.setRowCount(tablerow + 1)
                             self.tableWidget_3.setItem(tablerow,0,QTableWidgetItem(str(row.id)))
                             self.tableWidget_3.setItem(tablerow, 1, QTableWidgetItem(str(8-(row.Tb))))
@@ -718,12 +761,14 @@ class Ui_MainWindow(object):
                         break;
                     if self.FNuevo:
                         i=len(self.procesos)+1
-                        p=self.generarProcesos(i);
+                        p=self.generarProcesos();
                         self.procesos.append(p);
                         numProc = len(self.procesos)
                         if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
                             self.procesos[act].status="Listo";
-                            self.procesos[act].tLlegada=self.tg;
+                            if self.procesos[act].atendido == False:
+                                self.procesos[act].tLlegada=self.tg;
+                                self.procesos[act].atendido=True;
                             listos.append(self.procesos[act])
                             self.addProcMar(self.procesos[act]);
                             act+=1;
@@ -744,7 +789,58 @@ class Ui_MainWindow(object):
                                     break;
                                 QtTest.QTest.qWait(50)
                         self.FTabla=False;
-                        
+                    
+                    if self.FSuspend:
+                        if len(self.bloq)!=0:
+                            p=self.bloq[0];
+                            p.Tb=0;
+                            self.suspender(p);
+                            self.bloq.pop(0);
+                            self.procesos.remove(p);
+                            self.delProcMar(p);
+                            print("$$$$$$$$$$$$$$$$$$$$$$$")
+                            for p in self.procesos:
+                                print("Id:"+str(p.id)+" Sz:"+str(p.sz));
+                            numProc = len(self.procesos);
+                            act-=1;
+                            
+                            while(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz):
+                                self.procesos[act].status="Listo";
+                                if self.procesos[act].atendido == False:
+                                    self.procesos[act].tLlegada=self.tg;
+                                    self.procesos[act].atendido=True;
+                                listos.append(self.procesos[act])
+                                self.addProcMar(self.procesos[act]);
+                                act+=1;
+                            if act<numProc:
+                                self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                            else:
+                                self.label_22.setText("Sin procesos en cola")
+                        self.label_24.setText(str(self.susp))
+                        self.FSuspend=False;
+                    
+                    if self.FReturn:
+                        if self.susp !=0:
+                            p = self.retornar();
+                            self.procesos.append(p);
+                            numProc = len(self.procesos)
+                            if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
+                                self.procesos[act].status="Listo";
+                                if self.procesos[act].atendido == False:
+                                    self.procesos[act].tLlegada=self.tg;
+                                    self.procesos[act].atendido=True;
+                                listos.append(self.procesos[act])
+                                self.addProcMar(self.procesos[act]);
+                                act+=1;
+                            self.label_11.setText(str(numProc-act))
+                            if act<numProc:
+                                self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                            else:
+                                self.label_22.setText("Sin procesos en cola")
+                            self.actualizarListos(listos);
+                        self.label_24.setText(str(self.susp))
+                        self.FReturn=False;
+                    
                     j.Tt+=1;
                     j.Tr-=1;
                     self.tg+=1;
@@ -753,12 +849,12 @@ class Ui_MainWindow(object):
                     self.tableWidget_2.setItem(6,0,QTableWidgetItem(str(self.QuantumContador)))
                     
                         
-                    if len(bloq)!=0:
+                    if len(self.bloq)!=0:
                         tablerow = 0
                         cont = 0
                         toDel=False;
-                        while cont < len(bloq):
-                            row = bloq[cont]
+                        while cont < len(self.bloq):
+                            row = self.bloq[cont]
                             row.Tb -= 1
                             self.tableWidget_3.setRowCount(tablerow + 1)
                             self.tableWidget_3.setItem(tablerow, 0, QTableWidgetItem(str(row.id)))
@@ -770,10 +866,12 @@ class Ui_MainWindow(object):
                             cont += 1
                         if toDel:
                             Del.status="Listo"
-                            self.procesos[(Del.id - 1)].status="Listo";
+                            for p in self.procesos:
+                                if p.id == Del.id:
+                                    p.status="Listo"
                             self.actStatusPage(Del.status, Del);
                             listos.append(Del)
-                            bloq.remove(Del)
+                            self.bloq.remove(Del)
                             
                         
                     else:
@@ -790,7 +888,9 @@ class Ui_MainWindow(object):
                     j.tRetorno = j.tFinali-j.tLlegada;
                     j.tEspera = j.tFinali - j.tLlegada - j.Tt
                     j.status="Finalizado"
-                    self.procesos[(j.id - 1)] = j;
+                    for p in self.procesos:
+                        if p == j.id:
+                            p==j;
                     self.done.append(j);
                     
                     self.delProcMar(j);
@@ -799,16 +899,15 @@ class Ui_MainWindow(object):
                         print("#############################")
                         print("Disp: "+str(self.Dispon*5) + " " + str(self.procesos[act].sz))
                         self.procesos[act].status="Listo";
-                        self.procesos[act].tLlegada=self.tg;
+                        if self.procesos[act].atendido == False:
+                            self.procesos[act].tLlegada=self.tg;
+                            self.procesos[act].atendido=True;
                         listos.append(self.procesos[act])
                         self.addProcMar(self.procesos[act]);
                         for p in self.procesos:
                             print("Id:"+str(p.id)+" Sz:"+str(p.sz));
                         act+=1;
-                    if act<numProc:
-                        self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
-                    else:
-                        self.label_22.setText("Sin procesos en cola")
+
                     
                 tablerow2 = 0
                 for rows in self.done:
@@ -818,7 +917,7 @@ class Ui_MainWindow(object):
                     self.tableWidget_4.setItem(tablerow2,2,QTableWidgetItem(str(rows.res)))
                     tablerow2+=1
             
-            elif (len(listos)==0) and (len(bloq)>0):
+            elif (len(listos)==0) and (len(self.bloq)>0):
                 self.tableWidget_2.setColumnCount(0)
                 if self.FPausa:
                     while True:
@@ -827,12 +926,14 @@ class Ui_MainWindow(object):
                         QtTest.QTest.qWait(50)
                 if self.FNuevo:
                     i=len(self.procesos)+1
-                    p=self.generarProcesos(i);
+                    p=self.generarProcesos();
                     self.procesos.append(p);
                     numProc = len(self.procesos)
                     if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
                         self.procesos[act].status="Listo";
-                        self.procesos[act].tLlegada=self.tg;
+                        if self.procesos[act].atendido == False:
+                            self.procesos[act].tLlegada=self.tg;
+                            self.procesos[act].atendido=True;
                         listos.append(self.procesos[act])
                         self.addProcMar(self.procesos[act]);
                         act+=1;
@@ -853,11 +954,63 @@ class Ui_MainWindow(object):
                                 break;
                             QtTest.QTest.qWait(50)
                     self.FTabla=False;
+                
+                if self.FSuspend:
+                    if len(self.bloq)!=0:
+                        p=self.bloq[0];
+                        p.Tb=0;
+                        self.suspender(p);
+                        self.bloq.pop(0);
+                        self.procesos.remove(p);
+                        self.delProcMar(p);
+                        print("$$$$$$$$$$$$$$$$$$$$$$$")
+                        for p in self.procesos:
+                            print("Id:"+str(p.id)+" Sz:"+str(p.sz));
+                        numProc = len(self.procesos);
+                        act-=1;
+                        
+                        while(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz):
+                            self.procesos[act].status="Listo";
+                            if self.procesos[act].atendido == False:
+                                self.procesos[act].tLlegada=self.tg;
+                                self.procesos[act].atendido=True;
+                            listos.append(self.procesos[act])
+                            self.addProcMar(self.procesos[act]);
+                            act+=1;
+                        if act<numProc:
+                            self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                        else:
+                            self.label_22.setText("Sin procesos en cola")
+                    self.label_24.setText(str(self.susp))
+                    self.FSuspend=False;
+                
+                if self.FReturn:
+                    if self.susp !=0:
+                        p = self.retornar();
+                        self.procesos.append(p);
+                        numProc = len(self.procesos)
+                        if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
+                            self.procesos[act].status="Listo";
+                            if self.procesos[act].atendido == False:
+                                self.procesos[act].tLlegada=self.tg;
+                                self.procesos[act].atendido=True;
+                            listos.append(self.procesos[act])
+                            self.addProcMar(self.procesos[act]);
+                            act+=1;
+                        self.label_11.setText(str(numProc-act))
+                        if act<numProc:
+                            self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                        else:
+                            self.label_22.setText("Sin procesos en cola")
+                        self.actualizarListos(listos);
+                    self.label_24.setText(str(self.susp))
+                    self.FReturn=False;
+                
                 tablerow = 0
                 cont = 0
                 toDel=False;
-                while cont < len(bloq):
-                    row = bloq[cont]
+                while cont < len(self.bloq):
+                    row = self.bloq[cont]
                     row.Tb -= 1
                     self.tableWidget_3.setRowCount(tablerow + 1)
                     self.tableWidget_3.setItem(tablerow, 0, QTableWidgetItem(str(row.id)))
@@ -871,18 +1024,91 @@ class Ui_MainWindow(object):
                     self.label_14.setText(str(self.tg));
                 if toDel:
                     Del.status="Listo"
-                    self.procesos[(Del.id - 1)].status="Listo";
+                    for p in self.procesos:
+                        if p.id == Del.id:
+                            p.status="Listo"
                     listos.append(Del)
-                    bloq.remove(Del)
+                    self.bloq.remove(Del)
                     self.actStatusPage(Del.status, Del);
                 QtTest.QTest.qWait(1000) 
+              
+            elif (len(listos)==0) and (len(self.bloq)==0) and (self.susp !=0):
+                self.tableWidget.setRowCount(0)  
+                self.tableWidget_2.setColumnCount(0)
+                self.tableWidget_3.setRowCount(0)  
                 
+                if self.FPausa:
+                    while True:
+                        if self.FPausa == False:
+                            break;
+                        QtTest.QTest.qWait(50)
+                
+                if self.FNuevo:
+                    i=len(self.procesos)+1
+                    p=self.generarProcesos();
+                    self.procesos.append(p);
+                    numProc = len(self.procesos)
+                    if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
+                        self.procesos[act].status="Listo";
+                        if self.procesos[act].atendido == False:
+                            self.procesos[act].tLlegada=self.tg;
+                            self.procesos[act].atendido=True;
+                        listos.append(self.procesos[act])
+                        self.addProcMar(self.procesos[act]);
+                        act+=1;
+                    self.label_11.setText(str(numProc-act))
+                    self.FNuevo=False;
+                    if act<numProc:
+                        self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                    else:
+                        self.label_22.setText("Sin procesos en cola")
+                    
+                if self.FTabla:
+                    self.actTimes();
+                    self.FPausa=True;
+                    if self.FPausa:
+                        while True:
+                            if self.FPausa == False:
+                                self.stackedWidget.setCurrentWidget(self.Lotes)
+                                break;
+                            QtTest.QTest.qWait(50)
+                    self.FTabla=False;
+                
+                if self.FReturn:
+                    if self.susp !=0:
+                        p = self.retornar();
+                        self.procesos.append(p);
+                        numProc = len(self.procesos)
+                        if(act<numProc) and ((self.Dispon*5) >= self.procesos[act].sz) and ((numProc-act)-1 ==0):
+                            self.procesos[act].status="Listo";
+                            if self.procesos[act].atendido == False:
+                                self.procesos[act].tLlegada=self.tg;
+                                self.procesos[act].atendido=True;
+                            listos.append(self.procesos[act])
+                            self.addProcMar(self.procesos[act]);
+                            act+=1;
+                        self.label_11.setText(str(numProc-act))
+                        if act<numProc:
+                            self.label_22.setText("Siguiente proceso: "+str(self.procesos[act].id)+" Tamaño->"+str(self.procesos[act].sz))
+                        else:
+                            self.label_22.setText("Sin procesos en cola")
+                        self.actualizarListos(listos);
+                    self.label_24.setText(str(self.susp))
+                    self.FReturn=False;
+                
+                self.tg+=1;
+                self.label_14.setText(str(self.tg));
+                
+                QtTest.QTest.qWait(1000) 
+                
+            
         self.tableWidget.setRowCount(0)  
         self.tableWidget_2.setColumnCount(0)
         self.active=False
         self.actTimes()
         self.msgError("Procesos Terminados", "Todos los procesos han sido terminados, es posible revisar los tiempos")
         self.stackedWidget.setCurrentWidget(self.page)
+    
     
     def actualizarListos(self, listos):
         tablerow = 0
@@ -999,6 +1225,58 @@ class Ui_MainWindow(object):
                     sz -= 5;
         self.actTablePage();
     
+    def suspender(self,j):
+        ins=[]
+        if self.susp==0:
+            ins.append(j);
+            self.escribr_Instancias(ins);
+        else:
+            ins = self.leer_instancias();
+            ins.append(j);
+            self.escribr_Instancias(ins);
+        self.label_23.setText("Suspendido ID: "+str(ins[0].id)+" Tamaño: "+str(ins[0].sz));
+        self.susp+=1;
+        
+    def retornar(self):
+        ins=[]
+        ins=self.leer_instancias();
+        p=ins[0];
+        p.status="Nuevo"
+        ins.pop(0);
+        self.susp-=1;
+        if self.susp != 0:
+            self.label_23.setText("Suspendido ID: "+str(ins[0].id)+" Tamaño: "+str(ins[0].sz));
+        else:
+            self.label_23.setText("Sin procesos suspendidos");
+        self.escribr_Instancias(ins);
+        return p;
+    
+    def escribr_Instancias(self,instancias):
+        with open('suspendidos.txt', 'w') as archivo:
+            for instancia in instancias:
+                archivo.write(json.dumps(instancia.__dict__) + '\n')
+    
+    def leer_instancias(self):
+        instancias = []
+        with open('suspendidos.txt', 'r') as archivo:
+            for linea in archivo:
+                instancia_dict = json.loads(linea)
+                instancia = proceso(instancia_dict['id'],instancia_dict['operacion'],instancia_dict['res'],instancia_dict['tiEs'])
+                instancia.atendido = instancia_dict['atendido']
+                instancia.sz = instancia_dict['sz']
+                instancia.status = instancia_dict['status']
+                instancia.tLlegada = instancia_dict['tLlegada']
+                instancia.tFinali = instancia_dict['tFinali']
+                instancia.tRetorno = instancia_dict['tRetorno']
+                instancia.tRespuesta = instancia_dict['tRespuesta']
+                instancia.tEspera = instancia_dict['tEspera']
+                instancia.Tservicio = instancia_dict['Tservicio']
+                instancia.Tt = instancia_dict['Tt']
+                instancia.Tr = instancia_dict['Tr']
+                instancia.Tb = instancia_dict['Tb']
+                instancias.append(instancia)
+        return instancias
+          
     def keyPressEvent(self, event):
         if (event.key() == Qt.Key_Escape) and (self.active):
             self.close()
@@ -1024,7 +1302,12 @@ class Ui_MainWindow(object):
         elif (event.key()==Qt.Key_T) and (self.active):
             self.FTabla=True;
             print("Tecla presionada T Mostrar tabla:")
-            
+        elif (event.key()==Qt.Key_S) and (self.active):
+            self.FSuspend=True;
+            print("Tecla presionada S Suspender:")
+        elif (event.key()==Qt.Key_R) and (self.active):
+            self.FReturn=True;
+            print("Tecla presionada R Retornar:")
         print("Presionaste la tecla: " + event.text())
             
     def msgError(self,msg1,msg2):
@@ -1037,6 +1320,7 @@ class Ui_MainWindow(object):
 
 
       
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -1096,6 +1380,8 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Proceso"))
         item = self.tableWidget_5.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Estado"))
+        self.label_24.setText(_translate("MainWindow", "0"))
+        self.label_25.setText(_translate("MainWindow", "Procesos Supendidos"))
         self.label_17.setText(_translate("MainWindow", "Tiempos"))
         item = self.tableWidget_6.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Id"))
@@ -1127,12 +1413,12 @@ class proceso(object):
         self.atendido=False
         self.operacion = operacion
         self.sz=0;
+        self.tRetorno=0;
         self.status="Nuevo";
         self.res = str(res)
         self.tiEs = tiEs
         self.tLlegada = 0;
         self.tFinali = 0;
-        self.tRetorno = 0;
         self.tRespuesta = 0;
         self.tEspera =0;
         self.Tservicio = 0;
@@ -1160,3 +1446,4 @@ if __name__ == "__main__":
     MainWindow.keyPressEvent = ui.keyPressEvent
     
     sys.exit(app.exec_())
+
