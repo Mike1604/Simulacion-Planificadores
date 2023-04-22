@@ -30,6 +30,11 @@ body {
   color: var(--HDR-COLOR);
 }
 
+a{
+  text-decoration: none;
+  color: var(--HDR-COLOR);
+}
+
 header{
   position: sticky;
   width: 100%;
@@ -55,6 +60,13 @@ nav a:hover,
 nav a:focus {
     transform: scale(1.2);
     transition: all 0.3s;
+}
+
+hr{
+  border: dotted var(--HDR-BCK-COLOR) 6px;
+  border-bottom: none;
+  width: 12%;
+  margin: 50px auto;
 }
 
 .main-tittle{
@@ -202,23 +214,57 @@ nav a:focus {
 
 .programas-title{
   margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 0 0 5px #2a88ad;
+  align-items: center;
 }
-
 .programa-section-individual{
   padding: 1rem;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 }
 .programa-section-individual video{
-  width: 40%;
+  width: 50%;
   margin: 1rem;
 }
 
 .content-program{
   display: flex;
   flex-flow: column nowrap;
+}
+
+.content-program button{
+  display: block;
+}
+
+.buttons-section{
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.buttons-section button{
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+  font-family: 'Nunito', sans-serif; 
+  font-size: 1rem;
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: var(--HDR-BCK-COLOR);
+  border: 2px solid #243B55;
+  
+}
+
+.buttons-section button:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.3s;
+  box-shadow: rgb(64 190 170) 0px 0px 20px;
 }
 
 @media screen and (min-width: 1040px) {
@@ -286,5 +332,8 @@ nav a:focus {
   flex-flow: row wrap;
 }
 
-
+.buttons-section button{
+  width: 6.5rem;
+  height: 2.5rem;
+}
 }
