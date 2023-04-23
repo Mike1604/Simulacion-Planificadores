@@ -28,6 +28,7 @@ body {
   flex-flow: column nowrap;
   background: var(--BCK-COLOR);
   color: var(--HDR-COLOR);
+  text-align: center;
 }
 
 a{
@@ -290,6 +291,39 @@ hr{
   height: 25rem;
 }
 
+.conclusiones-section{
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 3rem;
+}
+
+.conclusion{
+  margin: 1rem;
+  background-color: #32353d;
+  border-radius: 40px 10px;
+  padding: 1.5rem;
+}
+
+footer{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 5rem;
+  background-color: #131417;
+  justify-content: space-around;
+  box-shadow: violet 0px 0px 20px;
+}
+
+.icon-fot{
+  font-size: 3rem;
+}
+
+.icon-fot:hover{
+  transform: scale(1.5);
+  transition: 0.5s;
+  cursor: pointer;
+  color:violet;
+}
+
 @media screen and (min-width: 1040px) {
   .nav-lg{
     width: 60%;
@@ -369,5 +403,10 @@ hr{
   height: 20rem;
 }
 
+.conclusiones-section{
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1rem;
+}
 
 }
