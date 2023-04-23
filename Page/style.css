@@ -63,7 +63,7 @@ nav a:focus {
 }
 
 hr{
-  border: dotted var(--HDR-BCK-COLOR) 6px;
+  border: dotted #6d81c4 6px;
   border-bottom: none;
   width: 12%;
   margin: 50px auto;
@@ -267,6 +267,29 @@ hr{
   box-shadow: rgb(64 190 170) 0px 0px 20px;
 }
 
+.documentos-investigacion{
+  margin: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+} 
+.document-inv{
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-bottom: 1rem;
+}
+
+.pdf-inv{
+  width: 20rem; 
+  height: 25rem;
+}
+
 @media screen and (min-width: 1040px) {
   .nav-lg{
     width: 60%;
@@ -293,29 +316,6 @@ hr{
     width: 0%;
   }
 
-}
-
-.documentos-investigacion{
-  margin: 1.5rem 1rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-} 
-.document-inv{
-  text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  background: #141E30;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding-bottom: 1rem;
-}
-
-.pdf-inv{
-  width: 20rem; 
-  height: 25rem;
 }
 
 @media screen and (max-width: 1040px) {
