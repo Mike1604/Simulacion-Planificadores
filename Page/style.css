@@ -194,7 +194,7 @@ hr{
   transition: all 0.3s;
 }
 .tittle{
-  margin-top: 1rem;
+  padding-top: 2rem;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
@@ -295,6 +295,29 @@ hr{
 
 }
 
+.documentos-investigacion{
+  margin: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+} 
+.document-inv{
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-bottom: 1rem;
+}
+
+.pdf-inv{
+  width: 20rem; 
+  height: 25rem;
+}
+
 @media screen and (max-width: 1040px) {
   .nav-lg{
     width: 0%;
@@ -336,4 +359,15 @@ hr{
   width: 6.5rem;
   height: 2.5rem;
 }
+.documentos-investigacion{
+  margin: 1.5rem 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+} 
+.pdf-inv{
+  width: 15rem; 
+  height: 20rem;
+}
+
+
 }
